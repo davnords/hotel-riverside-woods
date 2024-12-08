@@ -51,7 +51,7 @@ export default function Attractions() {
                             <div className="p-6">
                                 <h3 className="text-xl font-bold mb-2">Mabira Forest Reserve</h3>
                                 <p className="text-gray-600">
-                                    One of Uganda's largest natural forests, offering hiking trails, 
+                                    One of Uganda`&apos;`s largest natural forests, offering hiking trails, 
                                     zipline adventures, and rich biodiversity. Just a short drive 
                                     from the resort.
                                 </p>

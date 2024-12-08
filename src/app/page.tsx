@@ -88,8 +88,8 @@ export default function Home() {
             </h2>
             <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
               Established in 2019, Riverside Woods Resort is a tranquil haven born from the dream of three families.
-              Whether you're seeking a peaceful day trip, planning a grand celebration, or looking for a serene
-              getaway in nature, our resort offers the perfect setting. Enjoy our famous barbecue at "Camp David",
+              Whether you are seeking a peaceful day trip, planning a grand celebration, or looking for a serene
+              getaway in nature, our resort offers the perfect setting. Enjoy our famous barbecue at  `&quot;`Camp David`&quot;`,
               relax on covered verandas with stunning valley views, and immerse yourself in the natural beauty
               of Uganda.
             </p>
