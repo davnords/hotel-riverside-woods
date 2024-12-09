@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Hotel Alvers Mukono",
-  description: "Your Tranquil Haven in Mukono, Kampala",
+  title: "Riverside Woods Resort Sezibwa",
+  description: "Your Natural Escape Near Sezibwa Falls",
 };
 
 export default function RootLayout({
