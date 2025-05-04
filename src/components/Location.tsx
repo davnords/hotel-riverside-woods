@@ -13,14 +13,14 @@ function Location() {
         </h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Find Us in Sezibwa</h3>
+            <h3 className="text-2xl font-semibold">Find Us in Ssezibwa</h3>
             <p className="text-gray-600">
-              Located in the the tranquil nature of Sezibwa, Mukono, Riverside Woods resort is easily accessible
+              Located in the the tranquil nature of Ssezibwa, Mukono, Riverside Woods resort is easily accessible
               and situated close to the Jinja road.
             </p>
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5 text-primary" />
-              <span>Riverside Woods, Sezibwa, Kampala, Uganda</span>
+              <span>Riverside Woods Resort, Ssezibwa Falls Road, 3.9km off Jinja-Kampala Road, Uganda</span>
             </div>
             <Button
               className="mt-4"

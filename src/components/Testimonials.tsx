@@ -11,7 +11,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
 const testimonials = [
   {
-    text: "The perfect weekend getaway! Camp David's BBQ was incredible, and the views of Sezibwa Falls made our family celebration unforgettable. The staff went above and beyond to make our stay special.",
+    text: "The perfect weekend getaway! Camp David's BBQ was incredible, and the views of Ssezibwa Falls made our family celebration unforgettable. The staff went above and beyond to make our stay special.",
     author: "David Nordström",
     location: "Tourist",
     avatar: "/people/david-nordstrom.png",

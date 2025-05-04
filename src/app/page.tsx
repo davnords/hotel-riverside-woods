@@ -11,11 +11,15 @@ import PhoneButton from "@/components/PhoneButton";
 import Location from "@/components/Location";
 import Testimonials from "@/components/Testimonials";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Coffee, Hotel, Warehouse } from "lucide-react";
+import { Coffee, Hotel, Mail, Warehouse, FileText, UtensilsCrossed, TentTree } from "lucide-react";
 import Conveniences from "@/components/Conveniences";
 import Navbar from "@/components/Navbar";
 import Attractions from "@/components/Attractions"
 import Footer from "@/components/Footer"
+import { Button } from "@/components/ui/button";
+import EmailButton from "@/components/EmailButton";
+import Link from "next/link";
+import FAQ from "@/components/FAQ"
 
 const roomImages = [
   "/rooms/IMG_6169.JPG",
@@ -44,6 +48,17 @@ const facilityImages = [
   "/hotel/IMG_6180.JPG",
 ];
 
+
+const campingImages = [
+  "/camping/1.jpg",
+  "/camping/2.jpg",
+  "/camping/3.jpg",
+  "/camping/4.jpg",
+  "/camping/5.jpg",
+  "/camping/6.jpg",
+  "/camping/7.jpg",
+];
+
 export default function Home() {
 
   return (
@@ -63,19 +78,11 @@ export default function Home() {
           </div>
           <div className="relative z-10 text-center text-white px-4">
             <h1 className="text-5xl md:text-7xl font-bold mb-4">Riverside Woods Resort</h1>
-            <p className="text-xl md:text-2xl mb-8">Your Natural Escape Near Sezibwa Falls</p>
+            <p className="text-xl md:text-2xl mb-8">Your Natural Escape Near Ssezibwa Falls</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
               <PhoneButton />
-              {/* <Button
-                size="lg"
-                variant="outline"
-                className="bg-white text-black hover:bg-gray-100 transition-all duration-200"
-                
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Email Us
-              </Button> */}
+              <EmailButton />
             </div>
           </div>
         </section>
@@ -104,7 +111,7 @@ export default function Home() {
             </h2>
 
             <Tabs defaultValue="rooms" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsList className="grid w-full grid-cols-3 mb-8">
                 <TabsTrigger value="rooms" className="flex items-center gap-2">
                   <Hotel className="h-4 w-4" />
                   <span className="hidden sm:inline">Rooms</span>
@@ -120,6 +127,12 @@ export default function Home() {
                   <span className="hidden sm:inline">Facilities</span>
                   <span className="sm:hidden">More</span>
                 </TabsTrigger>
+                <TabsTrigger value="camping" className="flex items-center gap-2">
+                  <TentTree className="h-4 w-4" />
+                  <span className="hidden sm:inline">Camping</span>
+                  <span className="sm:hidden">More</span>
+                </TabsTrigger>
+
               </TabsList>
 
               <TabsContent value="rooms">
@@ -153,7 +166,7 @@ export default function Home() {
               <TabsContent value="dining">
                 <div className="space-y-4">
                   <p className="text-center text-gray-600 mb-8">
-                    Indulge in a culinary journey at our restaurant and bar, where we serve a delightful blend of local Ugandan flavors and international cuisine. Whether you’re craving traditional dishes crafted with authentic ingredients or global favorites prepared to perfection, our menu offers something for everyone.
+                    Indulge in a culinary journey at our restaurant and bar, where we serve a delightful blend of local Ugandan flavors and international cuisine. Whether you're craving traditional dishes crafted with authentic ingredients or global favorites prepared to perfection, our menu offers something for everyone.
                   </p>
                   <Carousel className="w-full max-w-4xl mx-auto">
                     <CarouselContent>
@@ -205,6 +218,33 @@ export default function Home() {
                   </Carousel>
                 </div>
               </TabsContent>
+              <TabsContent value="camping">
+                <div className="space-y-4">
+                  <p className="text-center text-gray-600 mb-8">
+                    Experience camping in our beautiful facilities near nature
+                  </p>
+                  <Carousel className="w-full max-w-4xl mx-auto">
+                    <CarouselContent>
+                      {campingImages.map((image, index) => (
+                        <CarouselItem key={index}>
+                          <Card>
+                            <CardContent className="p-0 aspect-video relative">
+                              <Image
+                                src={image}
+                                alt={`Camping Image ${index + 1}`}
+                                fill
+                                className="object-cover rounded-lg"
+                              />
+                            </CardContent>
+                          </Card>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </Carousel>
+                </div>
+              </TabsContent>
             </Tabs>
           </div>
         </section>
@@ -219,6 +259,78 @@ export default function Home() {
           <Attractions />
         </section>
 
+        {/* Menu & Pricing Section */}
+        <section id="menu-pricing" className="py-20 px-4 md:px-8 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              Menu & Pricing
+            </h2>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <UtensilsCrossed className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-lg mb-2">Food Menu</h3>
+                    <p className="text-sm text-gray-500 mb-4">Explore our delicious offerings</p>
+                    <Link href={'/prices/food-menu.jpg'} className="w-full" target="_blank">
+                      <Button
+                        className="w-full"
+                      >
+                        <FileText className="mr-2 h-4 w-4" />
+                        View Menu
+                      </Button>
+                    </Link>
+
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <Coffee className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-lg mb-2">Drinks Menu</h3>
+                    <p className="text-sm text-gray-500 mb-4">Browse our beverage selection</p>
+                    <Link href={'/prices/drink-menu.jpg'} className="w-full" target="_blank">
+                      <Button
+                        className="w-full"
+                      >
+                        <FileText className="mr-2 h-4 w-4" />
+                        View Menu
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <Hotel className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-lg mb-2">Accommodation Pricing</h3>
+                    <p className="text-sm text-gray-500 mb-4">View our room rates</p>
+                    <Link href={'/prices/accomodation-price.jpg'} className="w-full" target="_blank">
+                      <Button
+                        className="w-full"
+                      >
+                        <FileText className="mr-2 h-4 w-4" />
+                        View Pricing
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* Location Section */}
         <section id="location">
           <Location />
@@ -227,6 +339,11 @@ export default function Home() {
         {/* Testimonials Section */}
         <section id="testimonials">
           <Testimonials />
+        </section>
+
+        {/* Add FAQ section before Footer */}
+        <section id="faq">
+          <FAQ />
         </section>
 
         <Footer />

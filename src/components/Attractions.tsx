@@ -22,13 +22,13 @@ export default function Attractions() {
                             <div className="relative h-[200px]">
                                 <Image
                                     src="/ssezibwa/IMG_6140.JPG" // You'll need this image
-                                    alt="Sezibwa Falls"
+                                    alt="Ssezibwa Falls"
                                     fill
                                     className="object-cover"
                                 />
                             </div>
                             <div className="p-6">
-                                <h3 className="text-xl font-bold mb-2">Sezibwa Falls</h3>
+                                <h3 className="text-xl font-bold mb-2">Ssezibwa Falls</h3>
                                 <p className="text-gray-600">
                                     A sacred site in Buganda culture, these beautiful falls are just a short 
                                     walk from the resort. Experience the powerful waters and learn about 

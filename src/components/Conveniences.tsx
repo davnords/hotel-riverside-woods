@@ -60,7 +60,7 @@ const conveniences = [
   {
     icon: MapPin,
     title: "Location",
-    description: "Near Sezibwa Falls & Mabira Forest",
+    description: "Near Ssezibwa Falls & Mabira Forest",
   },
 ]
 

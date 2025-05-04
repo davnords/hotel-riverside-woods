@@ -18,16 +18,23 @@ export default function Footer() {
                                 <Link href="tel:+256123456789" className="hover:text-primary transition-colors">
                                     +256 701 430625
                                 </Link>
+                                <Link href="tel:+256752502177" className="hover:text-primary transition-colors">
+                                    +256 752 502177
+                                </Link>
+                                <Link href="tel:+256783920588" className="hover:text-primary transition-colors">
+                                    +256 783 920588
+                                </Link>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Mail className="h-4 w-4" />
-                                <Link href="mailto:info@riversidewoods.com" className="hover:text-primary transition-colors">
-                                    info@riversidewoods.com
+                                <Link href="mailto:riversidewoods.ssezibwa@gmail.com" className="hover:text-primary transition-colors">
+                                    riversidewoods.ssezibwa@gmail.com
                                 </Link>
                             </div>
                             <div className="flex items-start gap-2">
                                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                                <p>Riverside Woods Resort,<br />Near Sezibwa Falls,<br />Kampala-Jinja Road, Uganda</p>
+                                
+                                <p>Riverside Woods Resort,<br />Ssezibwa Falls Road,<br />3.9km off Jinja-Kampala Road, Uganda</p>
                             </div>
                         </div>
                     </div>
@@ -38,8 +45,10 @@ export default function Footer() {
                         <div className="grid grid-cols-1 gap-2 text-sm text-muted-foreground">
                             <Link href="#about" className="hover:text-primary transition-colors">About Us</Link>
                             <Link href="#experience" className="hover:text-primary transition-colors">Rooms & Camping</Link>
+                            <Link href="#menu-pricing" className="hover:text-primary transition-colors">Menu & Pricing</Link>
                             <Link href="#attractions" className="hover:text-primary transition-colors">Attractions</Link>
                             <Link href="#location" className="hover:text-primary transition-colors">Location</Link>
+                            <Link href="#faq" className="hover:text-primary transition-colors">FAQ</Link>
                         </div>
                     </div>
 
