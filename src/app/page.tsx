@@ -166,7 +166,7 @@ export default function Home() {
               <TabsContent value="dining">
                 <div className="space-y-4">
                   <p className="text-center text-gray-600 mb-8">
-                    Indulge in a culinary journey at our restaurant and bar, where we serve a delightful blend of local Ugandan flavors and international cuisine. Whether you're craving traditional dishes crafted with authentic ingredients or global favorites prepared to perfection, our menu offers something for everyone.
+                    Indulge in a culinary journey at our restaurant and bar, where we serve a delightful blend of local Ugandan flavors and international cuisine. Whether you are craving traditional dishes crafted with authentic ingredients or global favorites prepared to perfection, our menu offers something for everyone.
                   </p>
                   <Carousel className="w-full max-w-4xl mx-auto">
                     <CarouselContent>
