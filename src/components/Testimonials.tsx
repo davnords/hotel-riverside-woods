@@ -22,6 +22,18 @@ function GoogleIcon() {
 
 const testimonials = [
   {
+    text: "While searching for accommodation near Ssezibwa Falls, I came across Riverside Woods Resort and was so glad I decided to spend two nights there. Ssezibwa Falls is only about a 25-minute walk from the resort. The resort offers a large, beautiful green area for camping with wonderful views of the surrounding nature (there's also the option of a campfire for groups), as well as wonderfully equipped rooms & cottages. The bathroom was well-equipped and very clean. Wi-Fi and a delicious breakfast with organic vegetables straight from the garden, eggs, and chapati are included in the price. My experience at Riverside Wood Resort was entirely positive, and I felt very comfortable and welcome there, thanks in part to the friendliness of the host.",
+    author: "Friederike Weinhandl",
+    date: "3 weeks ago",
+    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjUukD24CzlT9uG9meHEC9g4W2DGiLykpbMhz1eL9UTeVEPsAhGg=s40-c-rp-mo-br100",
+  },
+  {
+    text: "We spent a few days there in February 2026 with a group of 16 people. The service was impeccable, the food was delicious and the management were always on hand. Everything went perfectly. A lovely evening by the campfire to unwind. We thoroughly enjoyed our time there.",
+    author: "mich t",
+    date: "3 weeks ago",
+    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVC4qnqjR9pj9SLXqu8UZiaTpTBi77NV7HLfe-38jPI0Vb3wivi=s40-c-rp-mo-br100",
+  },
+  {
     text: "The best place I have been to. I came on vacation from Sweden with my family and my kids loved the place. I recommend everyone to try it out. The ambiance is top notch, the gardens are well taken care of. And the food was great too.",
     author: "Ivan Kamyuka",
     date: "1 month ago",
