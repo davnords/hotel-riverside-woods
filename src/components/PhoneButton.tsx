@@ -31,7 +31,7 @@ function PhoneButton() {
                     <Button
                         size="lg"
                         
-                        className="bg-white text-black hover:bg-gray-300"
+                        className="rounded-full px-6 h-12 text-sm bg-white text-foreground shadow-lg shadow-black/10 hover:bg-white/90"
                         onClick={copyPhoneNumber}
                     >
                         {hasCopied ? (

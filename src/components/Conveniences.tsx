@@ -15,6 +15,7 @@ import {
   Zap,
   MapPin,
 } from "lucide-react"
+import SectionHeading from "@/components/SectionHeading"
 
 const conveniences = [
   {
@@ -66,30 +67,30 @@ const conveniences = [
 
 export default function Conveniences() {
   return (
-    <section className="py-20 px-4 md:px-8 bg-white">
+    <section className="py-24 px-4 md:px-8 bg-muted/60 border-y border-border/60">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          For Your Convenience
-        </h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Everything you need for a comfortable stay at Riverside Woods
-        </p>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-          {conveniences.map((item, index) => (
+        <SectionHeading
+          eyebrow="On the grounds"
+          title="For Your Convenience"
+          description="Everything you need for a comfortable stay at Riverside Woods."
+          className="mb-14"
+        />
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {conveniences.map((item) => (
             <div
-              key={index}
-              className="flex flex-col items-center text-center p-4 rounded-lg hover:bg-gray-50 transition-colors"
+              key={item.title}
+              className="flex flex-col items-center text-center rounded-2xl border border-transparent bg-background/60 p-6 transition-all duration-300 hover:border-border/70 hover:bg-background hover:shadow-sm"
             >
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <item.icon className="h-6 w-6 text-primary" />
+              <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center mb-4">
+                <item.icon className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="font-semibold mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-500">{item.description}</p>
+              <h3 className="font-semibold mb-1.5">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
   )
-} 
+}

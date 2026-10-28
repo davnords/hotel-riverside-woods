@@ -6,9 +6,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
-import { Quote } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import Link from "next/link"
+import SectionHeading from "@/components/SectionHeading"
 
 const GOOGLE_REVIEWS_URL = "https://www.google.com/maps?cid=10764857979203730488"
 const GOOGLE_RATING = "4.6"
@@ -33,8 +33,8 @@ function Stars({ rating }: { rating: number }) {
           key={i}
           className={
             i < rating
-              ? "h-4 w-4 text-yellow-400 fill-yellow-400"
-              : "h-4 w-4 text-gray-300 fill-gray-300"
+              ? "h-4 w-4 text-amber-400 fill-amber-400"
+              : "h-4 w-4 text-border fill-border"
           }
           viewBox="0 0 20 20"
         >
@@ -176,25 +176,22 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 px-4 md:px-8 bg-white">
+    <section className="py-24 px-4 md:px-8 bg-muted/60 border-y border-border/60">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Quote className="h-6 w-6 text-primary" />
-          <h2 className="text-3xl md:text-4xl font-bold text-center">
-            Guest Experiences
-          </h2>
-        </div>
-        <p className="text-gray-600 text-center mb-4 max-w-2xl mx-auto">
-          Real reviews from our guests on Google
-        </p>
+        <SectionHeading
+          eyebrow="Guest experiences"
+          title="What our guests say"
+          className="mb-6"
+        />
         <div className="flex items-center justify-center gap-3 mb-12">
           <GoogleIcon />
           <span className="font-semibold">{GOOGLE_RATING} / 5</span>
+          <span className="h-4 w-px bg-border" aria-hidden />
           <Link
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-gray-500 hover:text-primary transition-colors"
+            className="text-sm text-muted-foreground underline-offset-4 hover:text-primary hover:underline transition-colors"
           >
             {GOOGLE_REVIEW_COUNT} reviews on Google
           </Link>
@@ -207,36 +204,38 @@ export default function Testimonials() {
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml-2 md:-ml-4">
+          <CarouselContent className="-ml-4">
             {testimonials.map((testimonial, index) => (
               <CarouselItem
                 key={index}
-                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
+                className="pl-4 md:basis-1/2 lg:basis-1/3"
               >
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex flex-row space-x-3">
-                        <Avatar className="h-12 w-12">
+                <Card className="h-full border-border/70 bg-card shadow-sm">
+                  <CardContent className="p-7">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex flex-row items-center space-x-3">
+                        <Avatar className="h-11 w-11">
                           <AvatarImage src={testimonial.avatar ?? undefined} alt={testimonial.author} />
-                          <AvatarFallback>{testimonial.author[0]}</AvatarFallback>
+                          <AvatarFallback className="bg-secondary text-primary font-medium">
+                            {testimonial.author[0]}
+                          </AvatarFallback>
                         </Avatar>
                         <div className="flex flex-col">
-                          <span className="font-semibold">{testimonial.author}</span>
-                          <span className="text-sm text-gray-500">{testimonial.date}</span>
+                          <span className="font-semibold leading-tight">{testimonial.author}</span>
+                          <span className="text-sm text-muted-foreground">{testimonial.date}</span>
                         </div>
                       </div>
                       <GoogleIcon />
                     </div>
                     <Stars rating={testimonial.rating} />
-                    <p className="text-gray-600">{testimonial.text}</p>
+                    <p className="text-muted-foreground leading-relaxed line-clamp-[9]">{testimonial.text}</p>
                   </CardContent>
                 </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </div>
     </section>

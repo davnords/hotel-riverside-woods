@@ -31,7 +31,7 @@ function EmailButton() {
                     <Button
                         size="lg"
                         
-                        className="bg-white text-black hover:bg-gray-300"
+                        className="max-w-[calc(100vw-2rem)] rounded-full px-6 h-12 text-sm border border-white/60 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
                         onClick={copyEmail}
                     >
                         {hasCopied ? (
@@ -39,11 +39,11 @@ function EmailButton() {
                         ) : (
                             <Mail className="mr-2 h-5 w-5" />
                         )}
-                        {email}
+                        <span className="truncate">{email}</span>
                     </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <p>Click to copy phone number</p>
+                    <p>Click to copy email address</p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>

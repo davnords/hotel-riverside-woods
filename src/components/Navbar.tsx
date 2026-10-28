@@ -5,12 +5,11 @@ import { Button } from "@/components/ui/button"
 import {
     Hotel,
     UtensilsCrossed,
-    Users2,
     MapPin,
     Phone,
     Map,
     Film,
-    ChevronDown,
+    Menu,
     Check,
 } from "lucide-react"
 import { useEffect, useState } from "react"
@@ -47,15 +46,13 @@ const navItems = [
         icon: MapPin,
         href: "#location",
     },
-
-
 ]
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
 
     const [hasCopied, setHasCopied] = useState(false);
-    const phoneNumber = "+256 782 353140";
+    const phoneNumber = "+256 701 430625";
 
     const copyPhoneNumber = async () => {
         await navigator.clipboard.writeText(phoneNumber);
@@ -92,8 +89,8 @@ export default function Navbar() {
             className={cn(
                 "fixed top-0 w-full z-50 transition-all duration-300",
                 isScrolled
-                    ? "bg-white/80 backdrop-blur-md shadow-sm"
-                    : "bg-transparent"
+                    ? "bg-background/85 backdrop-blur-md border-b border-border/70 shadow-[0_1px_20px_-12px_rgba(0,0,0,0.3)]"
+                    : "bg-gradient-to-b from-black/40 to-transparent"
             )}
         >
             <div className="max-w-6xl mx-auto px-4">
@@ -102,8 +99,8 @@ export default function Navbar() {
                     <a
                         href="#"
                         className={cn(
-                            "font-bold text-lg transition-colors",
-                            isScrolled ? "text-gray-900" : "text-white"
+                            "font-display text-2xl font-semibold tracking-tight transition-colors",
+                            isScrolled ? "text-foreground" : "text-white"
                         )}
                     >
                         Riverside Woods
@@ -112,20 +109,19 @@ export default function Navbar() {
                     {/* Navigation Items */}
                     <div className="hidden md:flex items-center gap-1">
                         {navItems.map((item) => (
-                            <Button
+                            <button
                                 key={item.title}
-                                variant="ghost"
                                 className={cn(
-                                    "flex items-center gap-2",
+                                    "relative px-3 py-2 text-sm font-medium transition-colors",
+                                    "after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100",
                                     isScrolled
-                                        ? "text-gray-600 hover:text-gray-900"
-                                        : "text-white/90 hover:text-white hover:bg-black"
+                                        ? "text-muted-foreground hover:text-foreground after:bg-primary"
+                                        : "text-white/85 hover:text-white after:bg-white"
                                 )}
                                 onClick={() => scrollToSection(item.href)}
                             >
-                                <item.icon className="h-4 w-4" />
                                 {item.title}
-                            </Button>
+                            </button>
                         ))}
                     </div>
 
@@ -133,8 +129,8 @@ export default function Navbar() {
                     <Button
                         size="sm"
                         className={cn(
-                            "hidden md:flex items-center gap-2",
-                            !isScrolled && "bg-white text-gray-900 hover:bg-gray-100"
+                            "hidden md:flex items-center gap-2 rounded-full px-5",
+                            !isScrolled && "bg-white text-foreground hover:bg-white/90"
                         )}
                         onClick={copyPhoneNumber}
                     >
@@ -154,34 +150,33 @@ export default function Navbar() {
                                 size="icon"
                                 className={cn(
                                     "md:hidden",
-                                    isScrolled ? "text-gray-600" : "text-white"
+                                    isScrolled ? "text-foreground" : "text-white hover:bg-white/15 hover:text-white"
                                 )}
                             >
-                                <ChevronDown className="h-6 w-6" />
+                                <Menu className="h-6 w-6" />
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="top" className="pt-20">
-                            <div className="flex flex-col gap-4">
+                            <div className="flex flex-col gap-1">
                                 {navItems.map((item) => (
                                     <Button
                                         key={item.title}
                                         variant="ghost"
-                                        className="flex items-center gap-2 w-full justify-start"
+                                        className="flex items-center gap-3 w-full justify-start h-12"
                                         onClick={() => {
                                             scrollToSection(item.href)
                                         }}
                                     >
-                                        <item.icon className="h-4 w-4" />
+                                        <item.icon className="h-4 w-4 text-primary" />
                                         {item.title}
                                     </Button>
                                 ))}
                                 <Button
-                                    size="sm"
-                                    className="flex items-center gap-2 w-full"
+                                    className="flex items-center gap-2 w-full mt-3 h-12 rounded-full"
                                     onClick={copyPhoneNumber}
                                 >
                                     {hasCopied ? (
-                                        <Check className="h-4 w-4 text-green-600" />
+                                        <Check className="h-4 w-4" />
                                     ) : (
                                         <Phone className="h-4 w-4" />
                                     )}

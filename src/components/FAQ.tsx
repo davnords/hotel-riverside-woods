@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Users, Tent, Bike, ParkingCircle, UtensilsCrossed } from "lucide-react"
+import SectionHeading from "@/components/SectionHeading"
 
 const faqs = [
   {
@@ -36,23 +37,29 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="py-20 px-4 md:px-8 bg-white">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Frequently Asked Questions
-        </h2>
-        
-        <Accordion type="single" collapsible className="w-full">
+    <section className="py-24 px-4 md:px-8 bg-background">
+      <div className="max-w-3xl mx-auto">
+        <SectionHeading
+          eyebrow="Good to know"
+          title="Frequently Asked Questions"
+          className="mb-12"
+        />
+
+        <Accordion type="single" collapsible className="w-full space-y-3">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left">
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="rounded-2xl border border-border/70 bg-card px-5 data-[state=open]:shadow-sm"
+            >
+              <AccordionTrigger className="text-left hover:no-underline py-5">
                 <div className="flex items-center gap-3">
                   <faq.icon className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span>{faq.question}</span>
+                  <span className="font-medium">{faq.question}</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <p className="text-gray-600 pl-8">{faq.answer}</p>
+                <p className="text-muted-foreground leading-relaxed pl-8 pb-2">{faq.answer}</p>
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -60,4 +67,4 @@ export default function FAQ() {
       </div>
     </section>
   )
-} 
+}

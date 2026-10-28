@@ -2,37 +2,50 @@
 
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { MapPin } from 'lucide-react'
+import { MapPin, Navigation } from 'lucide-react'
+
+const DIRECTIONS_URL = 'https://www.google.com/maps?cid=10764857979203730488'
 
 function Location() {
   return (
-    <section className="py-20 px-4 md:px-8 bg-gray-50">
+    <section className="py-24 px-4 md:px-8 bg-muted/60 border-y border-border/60">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Our Location
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Find Us in Ssezibwa</h3>
-            <p className="text-gray-600">
-              Located in the the tranquil nature of Ssezibwa, Mukono, Riverside Woods resort is easily accessible
-              and situated close to the Jinja road.
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="eyebrow mb-4">
+              <span className="h-px w-6 bg-primary/40" aria-hidden />
+              Getting here
             </p>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-primary" />
-              <span>Riverside Woods Resort, Ssezibwa Falls Road, 3.9km off Jinja-Kampala Road, Uganda</span>
-            </div>
-            <Button
-              className="mt-4"
+            <h2 className="text-4xl md:text-5xl font-semibold mb-5">
+              Find us in Ssezibwa
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-7">
+              Set in the tranquil nature of Ssezibwa, Mukono, Riverside Woods is easily
+              accessible and sits close to the Jinja&ndash;Kampala road.
+            </p>
 
-              onClick={() => window.open('https://www.google.com/maps/place/Riverside+Woods+Sezibwa/@0.3387453,32.8641758,17z/data=!4m15!1m8!3m7!1s0x177dc5169dc8dec1:0x9564754c23f7bc38!2sRiverside+Woods+Sezibwa!8m2!3d0.3388068!4d32.864397!10e5!16s%2Fg%2F11fr2rsbzb!3m5!1s0x177dc5169dc8dec1:0x9564754c23f7bc38!8m2!3d0.3388068!4d32.864397!16s%2Fg%2F11fr2rsbzb?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D', '_blank')}
+            <div className="flex items-start gap-3 rounded-2xl border border-border/70 bg-background p-5 mb-7">
+              <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-sm leading-relaxed">
+                Riverside Woods Resort, Ssezibwa Falls Road,
+                <br />
+                3.9&nbsp;km off the Jinja&ndash;Kampala Road, Mukono, Uganda
+              </span>
+            </div>
+
+            <Button
+              size="lg"
+              className="rounded-full px-6"
+              onClick={() => window.open(DIRECTIONS_URL, '_blank', 'noopener,noreferrer')}
             >
-              <MapPin className="mr-2 h-5 w-5" />
-              Get Directions
+              <Navigation className="mr-2 h-4 w-4" />
+              Get directions
             </Button>
           </div>
-          <div className="aspect-square w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
+
+          <div className="aspect-square w-full rounded-2xl overflow-hidden shadow-lg shadow-primary/5 border border-border/70">
             <iframe
+              title="Map showing Riverside Woods Resort"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15953.843461646919!2d32.8641758!3d0.3387453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dc5169dc8dec1%3A0x9564754c23f7bc38!2sRiverside+Woods+Sezibwa!5e0!3m2!1sen!2sug!4v1710337559276!5m2!1sen!2sug"
               width="100%"
               height="100%"
@@ -40,7 +53,6 @@ function Location() {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale hover:grayscale-0 transition-all duration-300"
             />
           </div>
         </div>

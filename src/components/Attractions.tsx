@@ -1,65 +1,63 @@
-import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { TreePine, Map, Mountain } from "lucide-react"
+import SectionHeading from "@/components/SectionHeading"
+
+const attractions = [
+    {
+        image: "/ssezibwa/IMG_6140.JPG",
+        title: "Ssezibwa Falls",
+        distance: "25-minute walk",
+        description:
+            "A sacred site in Buganda culture, these beautiful falls are just a short walk from the resort. Experience the powerful waters and learn about their cultural significance.",
+    },
+    {
+        image: "/mabira-forest.jpg",
+        title: "Mabira Forest Reserve",
+        distance: "Short drive",
+        description:
+            "One of Uganda's largest natural forests, offering hiking trails, zipline adventures, and rich biodiversity. Just a short drive from the resort.",
+    },
+]
 
 export default function Attractions() {
     return (
-        <section className="py-20 px-4 md:px-8 bg-gray-50">
+        <section className="py-24 px-4 md:px-8 bg-background">
             <div className="max-w-6xl mx-auto">
-                <div className="flex items-center justify-center gap-2 mb-4">
-                    <Map className="h-6 w-6 text-primary" />
-                    <h2 className="text-3xl md:text-4xl font-bold text-center">
-                        Nearby Attractions
-                    </h2>
-                </div>
-                <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-                    Discover the natural wonders and cultural heritage surrounding our resort
-                </p>
+                <SectionHeading
+                    eyebrow="Just outside"
+                    title="Nearby Attractions"
+                    description="Discover the natural wonders and cultural heritage surrounding our resort."
+                    className="mb-12"
+                />
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    <Card className="overflow-hidden">
-                        <CardContent className="p-0">
-                            <div className="relative h-[200px]">
+                <div className="grid md:grid-cols-2 gap-6">
+                    {attractions.map((attraction) => (
+                        <article
+                            key={attraction.title}
+                            className="group overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5"
+                        >
+                            <div className="relative h-60 overflow-hidden">
                                 <Image
-                                    src="/ssezibwa/IMG_6140.JPG" // You'll need this image
-                                    alt="Ssezibwa Falls"
+                                    src={attraction.image}
+                                    alt={attraction.title}
                                     fill
-                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 32rem"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
+                                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
+                                <span className="absolute bottom-4 left-5 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur-sm">
+                                    {attraction.distance}
+                                </span>
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold mb-2">Ssezibwa Falls</h3>
-                                <p className="text-gray-600">
-                                    A sacred site in Buganda culture, these beautiful falls are just a short 
-                                    walk from the resort. Experience the powerful waters and learn about 
-                                    their cultural significance.
+                            <div className="p-7">
+                                <h3 className="font-display text-3xl font-semibold mb-3">{attraction.title}</h3>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    {attraction.description}
                                 </p>
                             </div>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="overflow-hidden">
-                        <CardContent className="p-0">
-                            <div className="relative h-[200px]">
-                                <Image
-                                    src="/mabira-forest.jpg" // You'll need this image
-                                    alt="Mabira Forest"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold mb-2">Mabira Forest Reserve</h3>
-                                <p className="text-gray-600">
-                                    One of Uganda&apos;s largest natural forests, offering hiking trails, 
-                                    zipline adventures, and rich biodiversity. Just a short drive 
-                                    from the resort.
-                                </p>
-                            </div>
-                        </CardContent>
-                    </Card>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>
     )
-} 
+}
