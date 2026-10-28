@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import EmailButton from "@/components/EmailButton";
 import Link from "next/link";
 import FAQ from "@/components/FAQ"
+import Videos from "@/components/Videos"
 
 const roomImages = [
   "/rooms/IMG_6169.JPG",
@@ -247,6 +248,11 @@ export default function Home() {
               </TabsContent>
             </Tabs>
           </div>
+        </section>
+
+        {/* Videos Section */}
+        <section id="videos">
+          <Videos />
         </section>
 
         {/* Conveniences Section */}

@@ -9,6 +9,7 @@ import {
     MapPin,
     Phone,
     Map,
+    Film,
     ChevronDown,
     Check,
 } from "lucide-react"
@@ -30,6 +31,11 @@ const navItems = [
         title: "Amenities",
         icon: UtensilsCrossed,
         href: "#conveniences",
+    },
+    {
+        title: "Videos",
+        icon: Film,
+        href: "#videos",
     },
     {
         title: "Attractions",

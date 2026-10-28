@@ -45,6 +45,7 @@ export default function Footer() {
                         <div className="grid grid-cols-1 gap-2 text-sm text-muted-foreground">
                             <Link href="#about" className="hover:text-primary transition-colors">About Us</Link>
                             <Link href="#experience" className="hover:text-primary transition-colors">Rooms & Camping</Link>
+                            <Link href="#videos" className="hover:text-primary transition-colors">Videos</Link>
                             <Link href="#menu-pricing" className="hover:text-primary transition-colors">Menu & Pricing</Link>
                             <Link href="#attractions" className="hover:text-primary transition-colors">Attractions</Link>
                             <Link href="#location" className="hover:text-primary transition-colors">Location</Link>
