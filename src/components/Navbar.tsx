@@ -50,6 +50,7 @@ const navItems = [
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const [hasCopied, setHasCopied] = useState(false);
     const phoneNumber = "+256 701 430625";
@@ -82,6 +83,13 @@ export default function Navbar() {
                 behavior: "smooth",
             })
         }
+    }
+
+    // Close the mobile sheet first — it locks body scroll while open, so the
+    // scroll has to wait until the close animation has released it.
+    const scrollFromMenu = (href: string) => {
+        setIsMenuOpen(false)
+        setTimeout(() => scrollToSection(href), 250)
     }
 
     return (
@@ -143,7 +151,7 @@ export default function Navbar() {
                     </Button>
 
                     {/* Mobile Menu Button */}
-                    <Sheet>
+                    <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                         <SheetTrigger asChild>
                             <Button
                                 variant="ghost"
@@ -163,9 +171,7 @@ export default function Navbar() {
                                         key={item.title}
                                         variant="ghost"
                                         className="flex items-center gap-3 w-full justify-start h-12"
-                                        onClick={() => {
-                                            scrollToSection(item.href)
-                                        }}
+                                        onClick={() => scrollFromMenu(item.href)}
                                     >
                                         <item.icon className="h-4 w-4 text-primary" />
                                         {item.title}
